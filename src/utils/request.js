@@ -5,7 +5,6 @@ const baseUrl =
     ? config.baseUrl.dev
     : config.baseUrl.pro
 
-console.log(baseUrl, 'baseUrl')
 const axios = new HttpRequest(baseUrl)
 
 export default axios

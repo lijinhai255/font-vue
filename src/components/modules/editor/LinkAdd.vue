@@ -1,12 +1,23 @@
 <template>
   <transition name="fade">
-    <div class="layui-layer-page layui-layer-prompt edit-content" v-show="isShow">
+    <div
+      class="layui-layer-page layui-layer-prompt edit-content"
+      v-show="isShow"
+    >
       <div class="layui-layer-title">请输入合法链接</div>
       <div class="layui-layer-content">
-        <input type="text" class="layui-layer-input" id="linkInput" v-model="link" />
+        <input
+          type="text"
+          class="layui-layer-input"
+          id="linkInput"
+          v-model="link"
+        />
       </div>
       <span class="layui-layer-setwin" @click="cancel()">
-        <a href="javascript:void(0)" class="layui-layer-ico layui-layer-close layui-layer-close1"></a>
+        <a
+          href="javascript:void(0)"
+          class="layui-layer-ico layui-layer-close layui-layer-close1"
+        ></a>
       </span>
       <div class="layui-layer-btn">
         <a class="layui-layer-btn0" @click.prevent="submit()">确定</a>
@@ -20,13 +31,13 @@
 export default {
   name: 'LinkAdd',
   props: ['isShow'],
-  data () {
+  data() {
     return {
       link: ''
     }
   },
   methods: {
-    submit () {
+    submit() {
       if (this.link === '') {
         document.getElementById('linkInput').focus()
         this.$pop('shake', '请输入合法的链接')
@@ -38,7 +49,7 @@ export default {
         this.$emit('closeEvent')
       }, 0)
     },
-    cancel () {
+    cancel() {
       this.$emit('closeEvent')
       this.link = ''
     }
@@ -46,5 +57,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

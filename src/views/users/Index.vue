@@ -1,29 +1,27 @@
 <template>
   <div class="layui-container">
+    candyUser
     <div class="layui-row layui-col-space15">
-      <div class="layui-col-md8">
+      <div class="layui-col-md16">
+        <!-- <imooc-top></imooc-top> -->
         <imooc-list></imooc-list>
       </div>
-      <div class="layui-col-md4">
+      <!-- <div class="layui-col-md4">
+        <imooc-tips></imooc-tips>
+        <imooc-sign></imooc-sign>
         <imooc-hotlist></imooc-hotlist>
         <imooc-ads></imooc-ads>
         <imooc-links></imooc-links>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
 
 <script>
-import HotList from '@/components/sidebar/HotList'
-import Ads from '@/components/sidebar/Ads'
-import Links from '@/components/sidebar/Links'
-import List from '@/components/contents/List'
+import List from '@/components/candyContents/List'
 export default {
-  name: 'template1',
+  name: 'index',
   components: {
-    'imooc-hotlist': HotList,
-    'imooc-ads': Ads,
-    'imooc-links': Links,
     'imooc-list': List
   }
 }

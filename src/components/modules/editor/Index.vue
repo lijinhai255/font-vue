@@ -34,10 +34,26 @@
       </div>
     </div>
     <div ref="modal">
-      <face :isShow="current === 0" @closeEvent="closeModal()" @addEvent="addFace"></face>
-      <img-upload :isShow="current === 1" @closeEvent="closeModal()" @addEvent="addPic"></img-upload>
-      <link-add :isShow="current === 2" @closeEvent="closeModal()" @addEvent="addLink"></link-add>
-      <quote :isShow="current === 3" @closeEvent="closeModal()" @addEvent="addQuote"></quote>
+      <face
+        :isShow="current === 0"
+        @closeEvent="closeModal()"
+        @addEvent="addFace"
+      ></face>
+      <img-upload
+        :isShow="current === 1"
+        @closeEvent="closeModal()"
+        @addEvent="addPic"
+      ></img-upload>
+      <link-add
+        :isShow="current === 2"
+        @closeEvent="closeModal()"
+        @addEvent="addLink"
+      ></link-add>
+      <quote
+        :isShow="current === 3"
+        @closeEvent="closeModal()"
+        @addEvent="addQuote"
+      ></quote>
       <code-input
         :isShow="current === 4"
         :width="codeWidth"
@@ -45,7 +61,11 @@
         @closeEvent="closeModal()"
         @addEvent="addCode"
       ></code-input>
-      <preview :isShow="current === 6" :content="content" @closeEvent="closeModal()"></preview>
+      <preview
+        :isShow="current === 6"
+        :content="content"
+        @closeEvent="closeModal()"
+      ></preview>
     </div>
   </div>
 </template>
@@ -68,7 +88,7 @@ export default {
     CodeInput,
     Preview
   },
-  data () {
+  data() {
     return {
       current: '',
       codeWidth: 400,
@@ -78,25 +98,25 @@ export default {
     }
   },
   watch: {
-    initContent (newval, oldval) {
+    initContent(newval, oldval) {
       this.content = newval
     }
   },
-  updated () {
+  updated() {
     this.$emit('changeContent', this.content)
   },
   methods: {
-    closeModal () {
+    closeModal() {
       this.current = ''
     },
-    focusEvent () {
+    focusEvent() {
       this.getPos()
     },
-    blurEvent () {
+    blurEvent() {
       this.getPos()
     },
     // 计算光标的当前位置
-    getPos () {
+    getPos() {
       let cursorPos = 0
       let elem = document.getElementById('edit')
       if (document.selection) {
@@ -110,56 +130,61 @@ export default {
       this.pos = cursorPos
     },
     // 添加表情
-    addFace (item) {
+    addFace(item) {
       const insertContent = ` face${item}`
       this.insert(insertContent)
       this.pos += insertContent.length
     },
     // 添加图片链接
-    addPic (item) {
+    addPic(item) {
       const insertContent = ` img[${item}]`
       this.insert(insertContent)
       this.pos += insertContent.length
     },
     // 添加链接
-    addLink (item) {
+    addLink(item) {
       const insertContent = ` a(${item})[${item}]`
       this.insert(insertContent)
       this.pos += insertContent.length
     },
     // 添加代码
-    addCode (item) {
+    addCode(item) {
       const insertContent = ` \n[pre]\n${item}\n[/pre]`
       this.insert(insertContent)
       this.pos += insertContent.length
     },
     // 添加引用
-    addQuote (item) {
+    addQuote(item) {
       const insertContent = ` \n[quote]\n${item}\n[/quote]`
       this.insert(insertContent)
       this.pos += insertContent.length
     },
     // 添加hr
-    addHr () {
+    addHr() {
       this.insert('\n[hr]')
       this.pos += 5
     },
-    choose (index) {
+    choose(index) {
       if (index === this.current) {
         this.closeModal()
       } else {
         this.current = index
       }
     },
-    handleBodyClick (e) {
+    handleBodyClick(e) {
       e.stopPropagation()
       // 触发隐藏本组件的关闭事件，改变isShow
       // 判断是否点击到了非控制ICON以外 + 本组件 的地方
-      if (!(this.$refs.icons.contains(e.target) || this.$refs.modal.contains(e.target))) {
+      if (
+        !(
+          this.$refs.icons.contains(e.target) ||
+          this.$refs.modal.contains(e.target)
+        )
+      ) {
         this.closeModal()
       }
     },
-    insert (val) {
+    insert(val) {
       if (typeof this.content === 'undefined') {
         return
       }
@@ -168,9 +193,11 @@ export default {
       this.content = tmp.join('')
     }
   },
-  mounted () {
+  mounted() {
     this.$nextTick(() => {
-      document.querySelector('body').addEventListener('click', this.handleBodyClick)
+      document
+        .querySelector('body')
+        .addEventListener('click', this.handleBodyClick)
     })
     this.codeWidth = this.$refs.textEdit.offsetWidth - 60
     this.codeHeight = this.$refs.textEdit.offsetHeight - 80
@@ -179,8 +206,10 @@ export default {
       this.codeHeight = this.$refs.textEdit.offsetHeight - 80
     })
   },
-  beforeDestroy () {
-    document.querySelector('body').removeEventListener('click', this.handleBodyClick)
+  beforeDestroy() {
+    document
+      .querySelector('body')
+      .removeEventListener('click', this.handleBodyClick)
   }
 }
 </script>

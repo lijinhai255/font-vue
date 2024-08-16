@@ -7,13 +7,15 @@
         target="_blank"
         class="fly-zanzhu"
         style="background-color: #5FB878;"
-      >大前端-更高层面进阶前端</a>
+        >大前端-更高层面进阶前端</a
+      >
       <a
         href="https://www.imooc.com/learn/1091"
         target="_blank"
         class="fly-zanzhu"
         style="background-color: #5FB878;"
-      >3小时速成 Vue2.x 核心技术</a>
+        >3小时速成 Vue2.x 核心技术</a
+      >
     </div>
   </div>
 </template>
@@ -24,5 +26,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

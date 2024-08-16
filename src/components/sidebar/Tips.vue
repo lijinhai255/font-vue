@@ -3,8 +3,12 @@
     <h3 class="fly-panel-title">温馨通道</h3>
     <div class="fly-panel-main layui-row">
       <ul class="layui-clear imooc-quick">
-        <li class="layui-col-xs6" v-for="(item,index) in lists" :key="'tips' + index">
-          <a :href="item.link" target="_blank">{{item.title}}</a>
+        <li
+          class="layui-col-xs6"
+          v-for="(item, index) in lists"
+          :key="'tips' + index"
+        >
+          <a :href="item.link" target="_blank">{{ item.title }}</a>
         </li>
       </ul>
     </div>
@@ -15,12 +19,12 @@
 import { getTips } from '@/api/content'
 export default {
   name: 'tips',
-  data () {
+  data() {
     return {
       lists: []
     }
   },
-  mounted () {
+  mounted() {
     getTips().then((res) => {
       if (res.code === 200) {
         this.lists = res.data

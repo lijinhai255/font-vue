@@ -9,7 +9,7 @@ const getComents = (params) => {
   if (token !== '') {
     headers = {
       headers: {
-        'Authorization': 'Bearer ' + store.state.token
+        Authorization: 'Bearer ' + store.state.token
       }
     }
   }
@@ -23,15 +23,11 @@ const addComment = (data) => axios.post('/comments/reply', { ...data })
 const updateComment = (data) => axios.post('/comments/update', { ...data })
 
 // 采纳最佳评论
-const setCommentBest = (params) => axios.get('/comments/accept?' + qs.stringify(params))
+const setCommentBest = (params) =>
+  axios.get('/comments/accept?' + qs.stringify(params))
 
 // 设置点赞
-const setHands = (params) => axios.get('/comments/hands?' + qs.stringify(params))
+const setHands = (params) =>
+  axios.get('/comments/hands?' + qs.stringify(params))
 
-export {
-  getComents,
-  addComment,
-  updateComment,
-  setCommentBest,
-  setHands
-}
+export { getComents, addComment, updateComment, setCommentBest, setHands }

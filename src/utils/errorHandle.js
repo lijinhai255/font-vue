@@ -5,7 +5,10 @@ import config from '@/config'
 import request from './request'
 import router from '@/router'
 
-const baseUrl = process.env.NODE_ENV === 'development' ? config.baseUrl.dev : config.baseUrl.pro
+const baseUrl =
+  process.env.NODE_ENV === 'development'
+    ? config.baseUrl.dev
+    : config.baseUrl.pro
 
 export const instance = axios.create({
   baseURL: baseUrl,
@@ -24,7 +27,7 @@ const errorHandle = async (err) => {
     try {
       const result = await instance.post('/login/refresh', null, {
         headers: {
-          'Authorization': 'Bearer ' + refreshToken
+          Authorization: 'Bearer ' + refreshToken
         }
       })
       if (result) {

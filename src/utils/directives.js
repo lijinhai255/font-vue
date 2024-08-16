@@ -1,7 +1,7 @@
 import { escapeHtml } from '@/utils/escapeHtml'
 import store from '@/store'
 export default {
-  'richtext': {
+  richtext: {
     bind: function (el, binding, vnode) {
       el.innerHTML = escapeHtml(binding.value)
     },
@@ -9,7 +9,7 @@ export default {
       el.innerHTML = escapeHtml(binding.value)
     }
   },
-  'hasRole': {
+  hasRole: {
     inserted: function (el, binding, vnode) {
       let roles = store.state.userInfo.roles || ['user']
       if (!roles.includes(binding.value)) {
@@ -17,7 +17,7 @@ export default {
       }
     }
   },
-  'hasPermission': {
+  hasPermission: {
     inserted: function (el, binding, vnode) {
       let types = vnode.context.$route.meta.types
       let values = binding.value

@@ -195,7 +195,7 @@ import { ValidationProvider, ValidationObserver } from 'vee-validate'
 
 export default {
   name: 'reg',
-  data () {
+  data() {
     return {
       username: '',
       name: '',
@@ -209,11 +209,11 @@ export default {
     ValidationProvider,
     ValidationObserver
   },
-  mounted () {
+  mounted() {
     this._getCode()
   },
   methods: {
-    _getCode () {
+    _getCode() {
       let sid = this.$store.state.sid
       getCode(sid).then((res) => {
         if (res.code === 200) {
@@ -221,7 +221,7 @@ export default {
         }
       })
     },
-    async submit () {
+    async submit() {
       const isValid = await this.$refs.observer.validate()
       if (!isValid) {
         // ABORT!!

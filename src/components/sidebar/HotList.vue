@@ -3,10 +3,12 @@
     <dl class="fly-panel fly-list-one">
       <dt class="fly-panel-title">本周热议</dt>
       <dd v-for="(item, index) in lists" :key="'hotlist' + index">
-        <router-link :to="{name: 'detail', params: {tid: item._id}}">{{item.title}}</router-link>
+        <router-link :to="{ name: 'detail', params: { tid: item._id } }">{{
+          item.title
+        }}</router-link>
         <span>
           <i class="iconfont icon-pinglun1"></i>
-          {{item.answer}}
+          {{ item.answer }}
         </span>
       </dd>
       <!-- 无数据时 -->
@@ -21,12 +23,12 @@
 import { getTop } from '@/api/content'
 export default {
   name: 'hotlist',
-  data () {
+  data() {
     return {
       lists: []
     }
   },
-  mounted () {
+  mounted() {
     getTop().then((res) => {
       if (res.code === 200) {
         this.lists = res.data
@@ -36,5 +38,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

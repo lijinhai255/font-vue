@@ -2,46 +2,37 @@
   <div>
     <ul class="fly-list">
       <li v-for="(item, index) in items" :key="'listitem' + index">
-        <router-link
-          class="fly-avatar"
-          :to="{ name: 'home', params: { uid: item?.uid?._id } }"
-          link
-        >
+        <a class="fly-avatar" @click.prevent="showCandyDetail(item)">
           <img
-            :src="item?.uid?.pic ? item?.uid?.pic : '/img/header.jpg'"
-            alt="贤心"
+            :src="item?.image_url ? item?.image_url : '/img/header.jpg'"
+            alt="产品图片地址"
           />
-        </router-link>
+        </a>
         <h2>
-          <a class="layui-badge">{{ item.catalog }}</a>
-          <router-link :to="{ name: 'detail', params: { tid: item._id } }">{{
-            item.title
-          }}</router-link>
+          <a class="badgeTitle">{{ item.description }}</a>
+          <router-link :to="{ name: 'detail', params: { tid: item._id } }"
+            >{{ item.title }}（规格:长{{ item.length }} 宽{{ item.width }}）
+          </router-link>
         </h2>
         <div class="fly-list-info">
           <router-link
             :to="{ name: 'home', params: { uid: item?.uid?._id } }"
             link
           >
-            <cite>{{ item?.uid?.name }}</cite>
-            <!--<i class="iconfont icon-renzheng" title="认证信息：XXX"></i>-->
-            <i
-              class="layui-badge fly-badge-vip"
-              v-if="item?.uid?.isVip !== '0'"
-              >{{ 'VIP' + item?.uid?.isVip }}</i
-            >
+            <cite>厂家名称： {{ item?.uid?.name }}</cite>
           </router-link>
           <span>{{ item.created | moment }}</span>
 
           <span class="fly-list-kiss layui-hide-xs" title="悬赏飞吻">
-            <i class="iconfont icon-kiss"></i>
-            {{ item.fav }}
+            <!-- <i class="iconfont icon-kiss"></i> -->
+            价格：
+            {{ item.price_per_unit }}{{ item.price_unit }}
           </span>
-          <span
-            class="layui-badge fly-badge-accept layui-hide-xs"
-            v-show="item.status !== '0'"
-            >已结</span
-          >
+          <span class="fly-list-kiss layui-hide-xs" title="悬赏飞吻">
+            <!-- <i class="iconfont icon-kiss"></i> -->
+            零售价：
+            {{ item.price_per_weight }}
+          </span>
           <span class="fly-list-nums">
             <i class="iconfont icon-pinglun1" title="回答"></i>
             {{ item.answer }}
@@ -67,19 +58,30 @@
       </div>
       <div class="nomore gray" v-else>没有更多了</div>
     </div>
+    <el-dialog
+      title="糖果图片"
+      :visible.sync="dialogVisible"
+      width="600px"
+      :before-close="handleClose"
+    >
+      <el-image
+        :src="item?.image_url ? item?.image_url : '/img/header.jpg'"
+        style="width: 100%; height: 100%"
+        :fit="fit"
+      ></el-image>
+    </el-dialog>
   </div>
 </template>
 
 <script>
-// import moment from 'dayjs'
-// import relativeTime from 'dayjs/plugin/relativeTime'
-// import 'dayjs/locale/zh-cn'
-
-// moment.extend(relativeTime)
-
-// import _ from 'lodash'
 export default {
   name: 'listitem',
+  data() {
+    return {
+      dialogVisible: false,
+      cuttentItem: {}
+    }
+  },
   props: {
     lists: {
       default: () => [],
@@ -124,19 +126,16 @@ export default {
   methods: {
     more() {
       this.$emit('nextpage')
+    },
+    showCandyDetail(item) {
+      console.log(item)
+      this.cuttentItem = item
+      this.dialogVisible = true
+    },
+    handleClose(done) {
+      done()
     }
   }
-  // filters: {
-  //   moment (date) {
-  //     // 超过7天，显示日期
-  //     if (moment(date).isBefore(moment().subtract(7, 'days'))) {
-  //       return moment(date).format('YYYY-MM-DD')
-  //     } else {
-  //       // 1小前，xx小时前，X天前
-  //       return moment(date).locale('zh-cn').from(moment())
-  //     }
-  //   }
-  // }
 }
 </script>
 
@@ -144,5 +143,8 @@ export default {
 .nomore {
   font-size: 16px;
   padding: 30px 0;
+}
+.badgeTitle {
+  font-size: 13px;
 }
 </style>

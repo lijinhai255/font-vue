@@ -10,6 +10,13 @@ const getList = (options) => {
   return axios.get('/public/list?' + qs.stringify(options))
 }
 
+/**
+ * 获取糖果列表
+ * **/
+const getCandyList = (options) => {
+  return axios.get('/public/candylist?' + qs.stringify(options))
+}
+
 // 温馨提醒
 const getTips = () => {
   return axios.get('/public/tips')
@@ -38,7 +45,7 @@ const getDetail = (tid) => {
   if (token !== '') {
     headers = {
       headers: {
-        'Authorization': 'Bearer ' + store.state.token
+        Authorization: 'Bearer ' + store.state.token
       }
     }
   }
@@ -56,5 +63,6 @@ export {
   uploadImg,
   addPost,
   getDetail,
-  updatePost
+  updatePost,
+  getCandyList
 }

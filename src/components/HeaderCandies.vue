@@ -6,12 +6,19 @@
       </a> -->
       <ul class="layui-nav fly-nav layui-hide-xs">
         <li class="layui-nav-item layui-this">
-          <a href="/"> <i class="iconfont icon-jiaoliu"></i>糖果列表 </a>
+          <router-link :to="{ name: 'candy' }">
+            <i class="iconfont icon-jiaoliu"></i>糖果列表
+          </router-link>
         </li>
         <li class="layui-nav-item">
-          <a href="case/case.html">
+          <router-link :to="{ name: 'candyCompany' }">
+            <i class="iconfont icon-iconmingxinganli"></i>厂家信息
+          </router-link>
+        </li>
+        <li class="layui-nav-item">
+          <router-link :to="{ name: 'candyUsers' }">
             <i class="iconfont icon-iconmingxinganli"></i>客户信息
-          </a>
+          </router-link>
         </li>
         <li class="layui-nav-item">
           <a href="http://www.layui.com/" target="_blank">

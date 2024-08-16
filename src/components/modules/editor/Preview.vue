@@ -1,6 +1,10 @@
 <template>
   <transition name="fade">
-    <div id="preview" class="layui-layer-page layui-layer-prompt edit-content" v-show="isShow">
+    <div
+      id="preview"
+      class="layui-layer-page layui-layer-prompt edit-content"
+      v-show="isShow"
+    >
       <div class="layui-layer-title">预览</div>
       <div class="layui-layer-content">
         <div class="detail-body" v-html="replaceContent"></div>
@@ -17,7 +21,7 @@ export default {
   name: 'Preview',
   props: ['isShow', 'content'],
   watch: {
-    isShow (newval, oldval) {
+    isShow(newval, oldval) {
       if (newval) {
         this.$store.commit('setHide', true)
       } else {
@@ -26,7 +30,7 @@ export default {
     }
   },
   computed: {
-    replaceContent () {
+    replaceContent() {
       // 根据content的内容，转义成为html代码
       if (typeof this.content === 'undefined' || this.content.trim() === '') {
         return
@@ -35,7 +39,7 @@ export default {
     }
   },
   methods: {
-    cancel () {
+    cancel() {
       this.$emit('closeEvent')
     }
   }

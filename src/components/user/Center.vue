@@ -8,11 +8,13 @@
           <div class="content fly-signin">
             <p>
               积分经验值：
-              <cite>{{userInfo.favs}}</cite>
+              <cite>{{ userInfo.favs }}</cite>
             </p>
             <p>
               您当前为:
-              <cite>{{userInfo.isVip === '0'? '非VIP' : 'VIP' + userInfo.isVip }}</cite>
+              <cite>{{
+                userInfo.isVip === '0' ? '非VIP' : 'VIP' + userInfo.isVip
+              }}</cite>
             </p>
           </div>
         </div>
@@ -27,12 +29,12 @@
             <ul class="layui-row layui-col-space10">
               <li
                 class="layui-col-sm3 layui-col-xs4"
-                v-for="(item,index) in lists"
+                v-for="(item, index) in lists"
                 :key="'user-center' + index"
               >
-                <router-link :to="{name: item.route}">
+                <router-link :to="{ name: item.route }">
                   <div class="layui-icon shortcut" :class="item.icon"></div>
-                  <span>{{item.name}}</span>
+                  <span>{{ item.name }}</span>
                 </router-link>
               </li>
             </ul>
@@ -51,7 +53,7 @@ export default {
   components: {
     Sign
   },
-  data () {
+  data() {
     return {
       lists: [
         {
@@ -118,15 +120,15 @@ export default {
     }
   },
   computed: {
-    userInfo () {
+    userInfo() {
       return this.$store.state.userInfo
     }
   },
-  mounted () {
+  mounted() {
     this.getUserInfo()
   },
   methods: {
-    getUserInfo () {
+    getUserInfo() {
       getInfo({ uid: this.userInfo._id }).then((res) => {
         if (res.code === 200) {
           this.$store.commit('setUserInfo', res.data)

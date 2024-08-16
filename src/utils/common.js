@@ -21,7 +21,10 @@ const getParam = (name, url) => {
 }
 
 const getElememtY = (elem) => {
-  return window.pageYOffset + document.querySelector(elem).getBoundingClientRect().top
+  return (
+    window.pageYOffset +
+    document.querySelector(elem).getBoundingClientRect().top
+  )
 }
 
 /**
@@ -38,9 +41,10 @@ const scrollToElem = (elem, duration, offset) => {
   const diff = elementY - startingY + offset
   // 如果 diff 0
   if (!diff) return
-  const easing = t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
+  const easing = (t) =>
+    t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
   let start
-  window.requestAnimationFrame(function step (timestamp) {
+  window.requestAnimationFrame(function step(timestamp) {
     if (!start) start = timestamp
     // 计算时间的差值，根据差值计算偏移量
     const time = timestamp - start

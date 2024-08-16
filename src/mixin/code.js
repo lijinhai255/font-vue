@@ -7,13 +7,13 @@ export default {
     ValidationProvider,
     ValidationObserver
   },
-  data () {
+  data() {
     return {
       code: '',
       svg: ''
     }
   },
-  mounted () {
+  mounted() {
     let sid = ''
     if (localStorage.getItem('sid')) {
       sid = localStorage.getItem('sid')
@@ -25,7 +25,7 @@ export default {
     this._getCode()
   },
   methods: {
-    _getCode () {
+    _getCode() {
       let sid = this.$store.state.sid
       getCode(sid).then((res) => {
         if (res.code === 200) {

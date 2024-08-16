@@ -3,19 +3,14 @@
     <div class="alert">
       <div class="flex">{{ msg }}</div>
       <div v-if="type === 'alert'">
-        <div class="btnCommon success"
-             @click="close()">确定</div>
+        <div class="btnCommon success" @click="close()">确定</div>
       </div>
-      <div v-else
-           class="space-round">
-        <div class="btnCommon cancel"
-             @click="cancelEvent()">取消</div>
-        <div class="btnCommon success"
-             @click="successEvent()">确定</div>
+      <div v-else class="space-round">
+        <div class="btnCommon cancel" @click="cancelEvent()">取消</div>
+        <div class="btnCommon success" @click="successEvent()">确定</div>
       </div>
     </div>
-    <div class="mask"
-         @click="closeMask()"></div>
+    <div class="mask" @click="closeMask()"></div>
   </div>
 </template>
 
@@ -49,24 +44,24 @@ export default {
     },
     instance: {
       type: Object,
-      default: () => { }
+      default: () => {}
     }
   },
   methods: {
-    close () {
+    close() {
       // this.isShow = false
       document.body.removeChild(this.instance.$el)
     },
-    closeMask () {
+    closeMask() {
       if (this.type === 'alert') {
         this.close()
       }
     },
-    cancelEvent () {
+    cancelEvent() {
       this.cancel()
       this.close()
     },
-    successEvent () {
+    successEvent() {
       this.success()
       this.close()
     }

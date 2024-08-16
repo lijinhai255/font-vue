@@ -26,7 +26,7 @@ import { uploadImg } from '@/api/content'
 import { updateUserInfo } from '@/api/user'
 export default {
   name: 'pic-upload',
-  data () {
+  data() {
     return {
       // 判断 userInfo & pic 是否存在
       pic:
@@ -37,7 +37,7 @@ export default {
     }
   },
   methods: {
-    upload (e) {
+    upload(e) {
       let file = e.target.files
       let formData = new FormData()
       if (file.length > 0) {

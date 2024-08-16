@@ -18,7 +18,7 @@ export default [
     name: 'edit',
     component: Edit,
     meta: { requiresAuth: true },
-    beforeEnter (to, from, next) {
+    beforeEnter(to, from, next) {
       // 正常的情况 detail
       if (
         ['detail', 'mypost'].indexOf(from.name) !== -1 &&

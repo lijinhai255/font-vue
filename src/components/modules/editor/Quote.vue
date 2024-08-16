@@ -1,6 +1,9 @@
 <template>
   <transition name="fade">
-    <div class="layui-layer-page layui-layer-prompt edit-content" v-show="isShow">
+    <div
+      class="layui-layer-page layui-layer-prompt edit-content"
+      v-show="isShow"
+    >
       <div class="layui-layer-title">请输入引用内容</div>
       <div class="layui-layer-content">
         <textarea
@@ -25,13 +28,13 @@
 export default {
   name: 'Quote',
   props: ['isShow'],
-  data () {
+  data() {
     return {
       quote: ''
     }
   },
   methods: {
-    submit () {
+    submit() {
       if (this.quote === '') {
         document.getElementById('quoteInput').focus()
         this.$pop('shake', '请输入引用内容')
@@ -43,7 +46,7 @@ export default {
         this.$emit('closeEvent')
       }, 0)
     },
-    cancel () {
+    cancel() {
       this.quote = ''
       this.$emit('closeEvent')
     }
@@ -51,5 +54,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

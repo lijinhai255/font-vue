@@ -3,7 +3,11 @@
     <div class="layui-layer-tips layui-edit-face edit-content" v-show="isShow">
       <div class="layui-layer-content">
         <ul class="layui-clear">
-          <li v-for="(value, key) in lists" :key="key" @click="handleFaceClick(key)">
+          <li
+            v-for="(value, key) in lists"
+            :key="key"
+            @click="handleFaceClick(key)"
+          >
             <img :src="value" alt />
           </li>
         </ul>
@@ -17,13 +21,13 @@ import faces from '@/assets/js/face'
 export default {
   name: 'Face',
   props: ['isShow', 'ctrl'],
-  data () {
+  data() {
     return {
       lists: faces
     }
   },
   methods: {
-    handleFaceClick (item) {
+    handleFaceClick(item) {
       this.$emit('addEvent', item)
       this.$emit('closeEvent')
     }
@@ -31,5 +35,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

@@ -1,6 +1,9 @@
 <template>
   <transition name="fade">
-    <div class="layui-layer-page layui-layer-border edit-content" v-show="isShow">
+    <div
+      class="layui-layer-page layui-layer-border edit-content"
+      v-show="isShow"
+    >
       <div class="layui-layer-title">插入图片</div>
       <div class="layui-layer-content">
         <ul class="layui-form layui-form-pane">
@@ -29,12 +32,17 @@
             />
           </li>
           <li class="layui-form-item">
-            <button type="button" class="layui-btn" @click="submit()">确认</button>
+            <button type="button" class="layui-btn" @click="submit()">
+              确认
+            </button>
           </li>
         </ul>
       </div>
       <span class="layui-layer-setwin" @click.stop="close()">
-        <a href="javascript:void(0)" class="layui-layer-ico layui-layer-close layui-layer-close1"></a>
+        <a
+          href="javascript:void(0)"
+          class="layui-layer-ico layui-layer-close layui-layer-close1"
+        ></a>
       </span>
     </div>
   </transition>
@@ -46,20 +54,20 @@ import { uploadImg } from '@/api/content'
 export default {
   name: 'ImgUpload',
   props: ['isShow', 'ctrl'],
-  data () {
+  data() {
     return {
       pic: '',
       formData: ''
     }
   },
   methods: {
-    close () {
+    close() {
       // 清空输入内容，选择的文件
       this.$emit('closeEvent')
       this.pic = ''
       this.formData = ''
     },
-    upload (e) {
+    upload(e) {
       let file = e.target.files
       let formData = new FormData()
       if (file.length > 0) {
@@ -78,7 +86,7 @@ export default {
       })
       document.getElementById('uploadImg').value = ''
     },
-    submit () {
+    submit() {
       if (this.pic === '') {
         document.getElementById('fileInput').focus()
         this.$pop('shake', '请上传图片或者复制图片链接')

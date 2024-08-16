@@ -10,7 +10,11 @@
             <router-link to="/forget">重置密码</router-link>
           </li>
         </ul>
-        <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
+        <div
+          class="layui-form layui-tab-content"
+          id="LAY_ucm"
+          style="padding: 20px 0;"
+        >
           <validation-observer ref="observer" v-slot="{ validate }">
             <div class="layui-tab-item layui-show">
               <div class="layui-form layui-form-pane">
@@ -22,7 +26,9 @@
                       v-slot="{ errors }"
                     >
                       <div class="layui-row">
-                        <label for="L_phone" class="layui-form-label">新密码</label>
+                        <label for="L_phone" class="layui-form-label"
+                          >新密码</label
+                        >
                         <div class="layui-input-inline">
                           <input
                             type="password"
@@ -32,10 +38,12 @@
                             class="layui-input"
                           />
                         </div>
-                        <div class="layui-form-mid layui-word-aux">6到16个字符</div>
+                        <div class="layui-form-mid layui-word-aux">
+                          6到16个字符
+                        </div>
                       </div>
                       <div class="layui-row">
-                        <span style="color: #c00;">{{errors[0]}}</span>
+                        <span style="color: #c00;">{{ errors[0] }}</span>
                       </div>
                     </ValidationProvider>
                   </div>
@@ -47,7 +55,9 @@
                       rules="required|min:6|max:16"
                     >
                       <div class="layui-row">
-                        <label for="L_imagecode1" class="layui-form-label">确认密码</label>
+                        <label for="L_imagecode1" class="layui-form-label"
+                          >确认密码</label
+                        >
                         <div class="layui-input-inline">
                           <input
                             type="password"
@@ -58,7 +68,7 @@
                         </div>
                       </div>
                       <div class="layui-row">
-                        <span style="color: #c00;">{{errors[0]}}</span>
+                        <span style="color: #c00;">{{ errors[0] }}</span>
                       </div>
                     </ValidationProvider>
                   </div>
@@ -68,10 +78,12 @@
                       name="code"
                       ref="codefield"
                       rules="required|length:4"
-                      v-slot="{errors}"
+                      v-slot="{ errors }"
                     >
                       <div class="layui-row">
-                        <label for="L_vercode" class="layui-form-label">验证码</label>
+                        <label for="L_vercode" class="layui-form-label"
+                          >验证码</label
+                        >
                         <div class="layui-input-inline">
                           <input
                             type="text"
@@ -91,13 +103,15 @@
                       </div>
                       <div class="layui-row">
                         <div class="layui-form-mid">
-                          <span style="color: #c00;">{{errors[0]}}</span>
+                          <span style="color: #c00;">{{ errors[0] }}</span>
                         </div>
                       </div>
                     </validation-provider>
                   </div>
                   <div class="layui-form-item">
-                    <button class="layui-btn" type="button" @click="submit()">提交</button>
+                    <button class="layui-btn" type="button" @click="submit()">
+                      提交
+                    </button>
                   </div>
                 </form>
               </div>
@@ -120,7 +134,7 @@ export default {
     ValidationProvider,
     ValidationObserver
   },
-  data () {
+  data() {
     return {
       key: '',
       password: '',
@@ -129,7 +143,7 @@ export default {
       svg: ''
     }
   },
-  mounted () {
+  mounted() {
     let sid = ''
     if (localStorage.getItem('sid')) {
       sid = localStorage.getItem('sid')
@@ -142,7 +156,7 @@ export default {
     this.key = getParam('key')
   },
   methods: {
-    _getCode () {
+    _getCode() {
       let sid = this.$store.state.sid
       getCode(sid).then((res) => {
         if (res.code === 200) {
@@ -150,7 +164,7 @@ export default {
         }
       })
     },
-    async submit () {
+    async submit() {
       const isValid = await this.$refs.observer.validate()
       if (!isValid) {
         // ABORT!!
@@ -181,5 +195,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

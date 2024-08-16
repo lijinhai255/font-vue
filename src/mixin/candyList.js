@@ -1,4 +1,4 @@
-import { getList } from '@/api/content'
+import { getCandyList } from '@/api/content'
 
 export default {
   data() {
@@ -43,7 +43,7 @@ export default {
         tag: this.tag,
         status: this.status
       }
-      getList(options)
+      getCandyList(options)
         .then((res) => {
           // 加入一个请求锁，防止用户多次点击，等待数据返回后，再打开
           this.isRepeat = false

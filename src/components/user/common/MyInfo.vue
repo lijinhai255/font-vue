@@ -107,7 +107,7 @@ export default {
     ValidationProvider,
     ValidationObserver
   },
-  data () {
+  data() {
     return {
       username: '',
       name: '',
@@ -116,8 +116,14 @@ export default {
       regmark: ''
     }
   },
-  mounted () {
-    let { username, name, location, gender, regmark } = this.$store.state.userInfo
+  mounted() {
+    let {
+      username,
+      name,
+      location,
+      gender,
+      regmark
+    } = this.$store.state.userInfo
     this.username = username || ''
     this.name = name || ''
     this.location = location || ''
@@ -125,7 +131,7 @@ export default {
     this.regmark = regmark || ''
   },
   methods: {
-    async submit () {
+    async submit() {
       const isValid = await this.$refs.observer.validate()
       if (!isValid) {
         // ABORT!!

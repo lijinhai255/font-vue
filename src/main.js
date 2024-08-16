@@ -4,6 +4,9 @@ import router from '@/router'
 import store from './store'
 import filters from '@/utils/filter'
 import directives from '@/utils/directives'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+import locale from 'element-ui/lib/locale/lang/en'
 
 import '@/utils/veevalidate'
 import Alert from './components/modules/alert'
@@ -11,6 +14,8 @@ import Pop from './components/modules/pop'
 
 Vue.use(Alert)
 Vue.use(Pop)
+
+Vue.use(ElementUI, { locale })
 
 Object.keys(filters).forEach((key) => {
   Vue.filter(key, filters[key])
@@ -25,5 +30,5 @@ Vue.config.productionTip = false
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: (h) => h(App)
 }).$mount('#app')

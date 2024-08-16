@@ -1,6 +1,11 @@
 <template>
-  <div class="tips animation" :class="{'shake': type === 'shake'}" v-show="isShow" ref="tips">
-    <div class="content">{{msg}}</div>
+  <div
+    class="tips animation"
+    :class="{ shake: type === 'shake' }"
+    v-show="isShow"
+    ref="tips"
+  >
+    <div class="content">{{ msg }}</div>
   </div>
 </template>
 
@@ -22,7 +27,7 @@ export default {
     }
   },
   watch: {
-    isShow (newval, oldval) {
+    isShow(newval, oldval) {
       if (newval !== oldval && newval === true) {
         // 显示pop组件
         setTimeout(() => {

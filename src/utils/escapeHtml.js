@@ -1,7 +1,9 @@
 import faces from '@/assets/js/face'
 const htmlEncode = (html) => {
   let temp = document.createElement('div')
-  temp.textContent !== undefined ? (temp.textContent = html) : (temp.innerText = html)
+  temp.textContent !== undefined
+    ? (temp.textContent = html)
+    : (temp.innerText = html)
   const output = temp.innerHTML
   temp = null
   return output
@@ -25,7 +27,10 @@ const escapeHtml = (val = '') => {
   if (img.test(result)) {
     const group = result.match(img)
     group.map((item) => {
-      result = result.replace(item, `<img src="${item.substr(4, item.length - 5)}">`)
+      result = result.replace(
+        item,
+        `<img src="${item.substr(4, item.length - 5)}">`
+      )
     })
   }
 
@@ -72,6 +77,4 @@ const escapeHtml = (val = '') => {
   result = result.replace(/\n/g, '<br>')
   return result
 }
-export {
-  escapeHtml
-}
+export { escapeHtml }

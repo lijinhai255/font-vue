@@ -1,6 +1,14 @@
 import { extend, localize } from 'vee-validate'
 // eslint-disable-next-line
-import { required, email, min, length, confirmed, max, is_not } from 'vee-validate/dist/rules'
+import {
+  required,
+  email,
+  min,
+  length,
+  confirmed,
+  max,
+  is_not as isNot
+} from 'vee-validate/dist/rules'
 import zh from 'vee-validate/dist/locale/zh_CN.json'
 
 extend('email', email)
@@ -9,12 +17,12 @@ extend('required', required)
 extend('length', length)
 extend('confirmed', confirmed)
 extend('max', max)
-extend('is_not', is_not)
+extend('is_not', isNot)
 
 // Custom validate
 extend('name', {
-  validate: value => {
-    return !(/^\d+/).test(value)
+  validate: (value) => {
+    return !/^\d+/.test(value)
   },
   message: '不能以纯数字为昵称'
 })

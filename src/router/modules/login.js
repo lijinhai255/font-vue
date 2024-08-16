@@ -1,7 +1,9 @@
 const Login = () => import(/* webpackChunkName: 'login' */ '@/views/Login.vue')
 const Reg = () => import(/* webpackChunkName: 'reg' */ '@/views/Reg.vue')
-const Forget = () => import(/* webpackChunkName: 'forget' */ '@/views/Forget.vue')
-const Confirm = () => import(/* webpackChunkName: 'confirm' */ '@/views/Confirm.vue')
+const Forget = () =>
+  import(/* webpackChunkName: 'forget' */ '@/views/Forget.vue')
+const Confirm = () =>
+  import(/* webpackChunkName: 'confirm' */ '@/views/Confirm.vue')
 const Reset = () => import(/* webpackChunkName: 'reset' */ '@/views/Reset.vue')
 
 export default [

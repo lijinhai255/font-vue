@@ -16,11 +16,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item,index) in list" :key="'mycollect' + index">
+        <tr v-for="(item, index) in list" :key="'mycollect' + index">
           <td class="title">
-            <router-link class="link" :to="{name: 'detail', params: {tid: item.tid}}">{{item.title}}</router-link>
+            <router-link
+              class="link"
+              :to="{ name: 'detail', params: { tid: item.tid } }"
+              >{{ item.title }}</router-link
+            >
           </td>
-          <td class="text-right">{{item.created | moment}}</td>
+          <td class="text-right">{{ item.created | moment }}</td>
         </tr>
       </tbody>
     </table>
@@ -44,7 +48,7 @@ export default {
   components: {
     'imooc-page': Pagination
   },
-  data () {
+  data() {
     return {
       list: [],
       total: 0,
@@ -53,11 +57,11 @@ export default {
       limit: 10
     }
   },
-  mounted () {
+  mounted() {
     this.getCollectList()
   },
   methods: {
-    getCollectList () {
+    getCollectList() {
       getCollect({
         page: this.current,
         limit: this.limit
@@ -68,7 +72,7 @@ export default {
         }
       })
     },
-    handleChange (val) {
+    handleChange(val) {
       this.current = val
       this.getCollectList()
     }
