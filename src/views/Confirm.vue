@@ -18,14 +18,14 @@
 </template>
 
 <script>
-import { updateUsername } from '@/api/user'
+import { updateUsername, } from '@/api/user'
 let obj = {}
 export default {
   name: 'confirm',
   data() {
     return {
       username: '',
-      isSend: false
+      isSend: false,
     }
   },
   mounted() {
@@ -45,8 +45,8 @@ export default {
           }, 1000)
         }
       })
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="fly-panel" style="margin-bottom: 0;">
+  <div class="fly-panel" style="margin-bottom: 0">
     <div class="fly-panel-title fly-filter">
       <!-- <a
         :class="{ 'layui-this': status === '' && tag === '' }"
@@ -55,25 +55,25 @@ export default {
       isEnd: false,
       isRepeat: false,
       current: '',
-      lists: []
+      lists: [],
     }
   },
   components: {
-    ListItem
+    ListItem,
   },
   watch: {
-    current(newval, oldval) {
+    current() {
       // 去兼听current标签是否有变化，如果有变化，则需要重新进行查询
       this.init()
     },
-    $route(newval, oldval) {
+    $route() {
       // console.log('$route -> newval', newval)
       let catalog = this.$route.params['catalog']
       if (typeof catalog !== 'undefined' && catalog !== '') {
         this.catalog = catalog
       }
       this.init()
-    }
+    },
   },
   methods: {
     search(val) {
@@ -111,8 +111,8 @@ export default {
           this.tag = ''
           this.current = ''
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

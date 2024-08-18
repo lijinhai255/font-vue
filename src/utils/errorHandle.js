@@ -13,9 +13,9 @@ const baseUrl =
 export const instance = axios.create({
   baseURL: baseUrl,
   headers: {
-    'Content-Type': 'application/json;charset=utf-8'
+    'Content-Type': 'application/json;charset=utf-8',
   },
-  timeout: 10000
+  timeout: 10000,
 })
 
 const errorHandle = async (err) => {
@@ -27,8 +27,8 @@ const errorHandle = async (err) => {
     try {
       const result = await instance.post('/login/refresh', null, {
         headers: {
-          Authorization: 'Bearer ' + refreshToken
-        }
+          Authorization: 'Bearer ' + refreshToken,
+        },
       })
       if (result) {
         store.commit('setToken', result.data.token)
@@ -44,9 +44,9 @@ const errorHandle = async (err) => {
       router.push({
         name: 'login',
         query: {
-          redirect: router.currentRoute.fullPath
+          redirect: router.currentRoute.fullPath,
           // router.currentRoute -> $route
-        }
+        },
       })
       return false
     }

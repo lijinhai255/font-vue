@@ -1,4 +1,4 @@
-import { getList } from '@/api/content'
+import { getList, } from '@/api/content'
 
 export default {
   data() {
@@ -13,7 +13,7 @@ export default {
       isEnd: false,
       isRepeat: false,
       current: '',
-      lists: []
+      lists: [],
     }
   },
   mounted() {
@@ -41,7 +41,7 @@ export default {
         limit: this.limit,
         sort: this.sort,
         tag: this.tag,
-        status: this.status
+        status: this.status,
       }
       getList(options)
         .then((res) => {
@@ -73,6 +73,6 @@ export default {
     },
     nextPage() {
       this._getLists()
-    }
-  }
+    },
+  },
 }

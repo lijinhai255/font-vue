@@ -79,22 +79,22 @@ export default {
   data() {
     return {
       dialogVisible: false,
-      cuttentItem: {}
+      cuttentItem: {},
     }
   },
   props: {
     lists: {
       default: () => [],
-      type: Array
+      type: Array,
     },
     isShow: {
       default: true,
-      type: Boolean
+      type: Boolean,
     },
     isEnd: {
       default: false,
-      type: Boolean
-    }
+      type: Boolean,
+    },
   },
   computed: {
     items() {
@@ -121,7 +121,7 @@ export default {
         }
       })
       return this.lists
-    }
+    },
   },
   methods: {
     more() {
@@ -134,8 +134,8 @@ export default {
     },
     handleClose(done) {
       done()
-    }
-  }
+    },
+  },
 }
 </script>
 

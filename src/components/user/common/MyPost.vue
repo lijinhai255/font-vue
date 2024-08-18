@@ -87,12 +87,12 @@
 </template>
 
 <script>
-import { getPostListByUid, deletePostByUid } from '@/api/user'
+import { getPostListByUid, deletePostByUid, } from '@/api/user'
 import Pagination from '@/components/modules/pagination/Index'
 export default {
   name: 'my-post',
   components: {
-    'imooc-page': Pagination
+    'imooc-page': Pagination,
   },
   data() {
     return {
@@ -100,7 +100,7 @@ export default {
       total: 0,
       current: 0,
       page: 0,
-      limit: 10
+      limit: 10,
     }
   },
   mounted() {
@@ -110,7 +110,7 @@ export default {
     getPostList() {
       getPostListByUid({
         page: this.current,
-        limit: this.limit
+        limit: this.limit,
       }).then((res) => {
         if (res.code === 200) {
           this.list = res.data
@@ -127,7 +127,7 @@ export default {
             return
           }
           deletePostByUid({
-            tid: item._id
+            tid: item._id,
           }).then((res) => {
             if (res.code === 200) {
               this.$pop('', '删除成功！')
@@ -150,11 +150,11 @@ export default {
       } else {
         this.$router.push({
           name: 'edit',
-          params: { tid: item._id, page: item }
+          params: { tid: item._id, page: item, },
         })
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -129,15 +129,15 @@
 </template>
 
 <script>
-import { updatePost } from '@/api/content'
+import { updatePost, } from '@/api/content'
 import CodeMix from '@/mixin/code'
 import Editor from '../modules/editor/Index'
 export default {
   name: 'Edit',
-  props: ['tid', 'page'],
-  mixins: [CodeMix],
+  props: ['tid', 'page', ],
+  mixins: [CodeMix, ],
   components: {
-    Editor
+    Editor,
   },
   data() {
     return {
@@ -146,28 +146,28 @@ export default {
       catalogs: [
         {
           text: '请选择',
-          value: ''
+          value: '',
         },
         {
           text: '提问',
-          value: 'ask'
+          value: 'ask',
         },
         {
           text: '分享',
-          value: 'share'
+          value: 'share',
         },
         {
           text: '讨论',
-          value: 'discuss'
+          value: 'discuss',
         },
         {
           text: '建议',
-          value: 'advise'
-        }
+          value: 'advise',
+        },
       ],
-      favList: [20, 30, 50, 60, 80],
+      favList: [20, 30, 50, 60, 80, ],
       content: '',
-      title: ''
+      title: '',
     }
   },
   mounted() {
@@ -219,13 +219,13 @@ export default {
         title: this.title,
         cataIndex: this.cataIndex,
         content: this.content,
-        favIndex: this.favIndex
+        favIndex: this.favIndex,
       }
       if (this.title.trim() !== '' && this.content.trim() !== '') {
         const editData = localStorage.getItem('editData')
         let newObj = {}
         if (editData && editData !== '') {
-          newObj = { ...saveData, ...JSON.parse(editData) }
+          newObj = { ...saveData, ...JSON.parse(editData), }
         }
         localStorage.setItem('editData', JSON.stringify(newObj))
       }
@@ -247,26 +247,26 @@ export default {
         title: this.title,
         content: this.content,
         code: this.code,
-        sid: this.$store.state.sid
+        sid: this.$store.state.sid,
       }).then((res) => {
         if (res.code === 200) {
           // 清空已经发布的内容
           localStorage.setItem('editData', '')
           this.$pop('', '更新成功!')
           setTimeout(() => {
-            this.$router.push({ name: 'detail', params: { tid: this.tid } })
+            this.$router.push({ name: 'detail', params: { tid: this.tid, }, })
           }, 1000)
         } else {
           this.$alert(res.msg)
         }
       })
-    }
+    },
   },
   computed: {
     isHide() {
       return this.$store.state.isHide
-    }
-  }
+    },
+  },
 }
 </script>
 

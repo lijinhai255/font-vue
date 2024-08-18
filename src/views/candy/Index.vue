@@ -22,8 +22,8 @@ import List from '@/components/candyContents/List'
 export default {
   name: 'index',
   components: {
-    'imooc-list': List
-  }
+    'imooc-list': List,
+  },
 }
 </script>
 

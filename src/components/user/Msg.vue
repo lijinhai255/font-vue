@@ -55,27 +55,27 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import { getMsg, setMsg } from '@/api/user'
+import { mapState, } from 'vuex'
+import { getMsg, setMsg, } from '@/api/user'
 import Pagination from '@/components/modules/pagination/Index'
 export default {
   name: 'user-msg',
   components: {
-    'imooc-page': Pagination
+    'imooc-page': Pagination,
   },
   data() {
     return {
       lists: [],
       page: 0,
       limit: 10,
-      total: 0
+      total: 0,
     }
   },
   mounted() {
     this.getMsgAll()
   },
   computed: mapState({
-    num: (state) => (state.num.message ? state.num.message : 0)
+    num: (state) => (state.num.message ? state.num.message : 0),
   }),
   methods: {
     clearAll() {
@@ -83,25 +83,25 @@ export default {
         if (res.code === 200) {
           // 清空所有消息
           this.lists = []
-          this.$store.commit('setMessage', { message: 0 })
+          this.$store.commit('setMessage', { message: 0, })
           this.total = 0
         }
       })
     },
     clear(item) {
-      setMsg({ id: item._id }).then((res) => {
+      setMsg({ id: item._id, }).then((res) => {
         if (res.code === 200) {
           // 设置特定消息已读
           // this.lists = []
           this.getMsgAll()
-          this.$store.commit('setMessage', { message: this.num - 1 })
+          this.$store.commit('setMessage', { message: this.num - 1, })
         }
       })
     },
     getMsgAll() {
       getMsg({
         page: this.page,
-        limit: this.limit
+        limit: this.limit,
       }).then((res) => {
         if (res.code === 200) {
           this.lists = res.data
@@ -112,8 +112,8 @@ export default {
     handleChange(val) {
       this.page = val
       this.getMsgAll()
-    }
-  }
+    },
+  },
 }
 </script>
 

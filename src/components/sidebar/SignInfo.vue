@@ -61,14 +61,14 @@ export default {
   props: {
     isShow: {
       default: false,
-      type: Boolean
-    }
+      type: Boolean,
+    },
   },
   methods: {
     close() {
       this.$emit('closeModal')
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -19,12 +19,12 @@
 </template>
 
 <script>
-import { getLinks } from '@/api/content'
+import { getLinks, } from '@/api/content'
 export default {
   name: 'links',
   data() {
     return {
-      lists: []
+      lists: [],
     }
   },
   mounted() {
@@ -33,7 +33,7 @@ export default {
         this.lists = res.data
       }
     })
-  }
+  },
 }
 </script>
 

@@ -129,15 +129,15 @@
 </template>
 
 <script>
-import { getInfo, getCommentList, getPostPublic } from '@/api/user'
+import { getInfo, getCommentList, getPostPublic, } from '@/api/user'
 export default {
   name: 'home',
-  props: ['uid'],
+  props: ['uid', ],
   data() {
     return {
       postList: [],
       commentList: [],
-      userInfo: {}
+      userInfo: {},
     }
   },
   mounted() {
@@ -148,7 +148,7 @@ export default {
   methods: {
     getUserInfo() {
       // 获取用户的基本信息
-      getInfo({ uid: this.uid || 123 }).then((res) => {
+      getInfo({ uid: this.uid || 123, }).then((res) => {
         if (res.code === 200) {
           this.userInfo = res.data
         }
@@ -159,7 +159,7 @@ export default {
       getPostPublic({
         uid: this.uid,
         page: 0,
-        limit: 20
+        limit: 20,
       }).then((res) => {
         if (res.code === 200) {
           this.postList = res.data
@@ -171,14 +171,14 @@ export default {
       getCommentList({
         uid: this.uid,
         page: 0,
-        limit: 20
+        limit: 20,
       }).then((res) => {
         if (res.code === 200) {
           this.commentList = res.data
         }
       })
-    }
-  }
+    },
+  },
 }
 </script>
 

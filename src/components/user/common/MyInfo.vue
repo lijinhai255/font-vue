@@ -99,13 +99,13 @@
 </template>
 
 <script>
-import { updateUserInfo } from '@/api/user'
-import { ValidationProvider, ValidationObserver } from 'vee-validate'
+import { updateUserInfo, } from '@/api/user'
+import { ValidationProvider, ValidationObserver, } from 'vee-validate'
 export default {
   name: 'myinfo',
   components: {
     ValidationProvider,
-    ValidationObserver
+    ValidationObserver,
   },
   data() {
     return {
@@ -113,7 +113,7 @@ export default {
       name: '',
       location: '',
       gender: '',
-      regmark: ''
+      regmark: '',
     }
   },
   mounted() {
@@ -122,7 +122,7 @@ export default {
       name,
       location,
       gender,
-      regmark
+      regmark,
     } = this.$store.state.userInfo
     this.username = username || ''
     this.name = name || ''
@@ -142,7 +142,7 @@ export default {
         name: this.name,
         location: this.location,
         gender: this.gender,
-        regmark: this.regmark
+        regmark: this.regmark,
       }).then((res) => {
         if (res.code === 200) {
           this.$store.commit('setUserInfo', {
@@ -152,14 +152,14 @@ export default {
               name: this.name,
               location: this.location,
               gender: this.gender,
-              regmark: this.regmark
-            }
+              regmark: this.regmark,
+            },
           })
           this.$alert('更新成功！')
         }
       })
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -35,7 +35,7 @@ export default {
   name: 'FooterCandies',
   data() {
     return {
-      isShow: false
+      isShow: false,
     }
   },
   methods: {
@@ -46,8 +46,8 @@ export default {
       setTimeout(() => {
         this.isShow = false
       }, 500)
-    }
-  }
+    },
+  },
 }
 </script>
 

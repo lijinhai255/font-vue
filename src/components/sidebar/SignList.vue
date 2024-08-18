@@ -58,21 +58,21 @@
 </template>
 
 <script>
-import { getHotSignRecord } from '@/api/hot'
+import { getHotSignRecord, } from '@/api/hot'
 export default {
   name: 'sign-list',
   props: {
     isShow: {
       default: false,
-      type: Boolean
-    }
+      type: Boolean,
+    },
   },
   data() {
     return {
       current: 0,
       lists: [],
       limit: 20,
-      page: 0
+      page: 0,
     }
   },
   mounted() {
@@ -91,14 +91,14 @@ export default {
       getHotSignRecord({
         page: this.page,
         limit: this.limit,
-        index: this.current
+        index: this.current,
       }).then((res) => {
         if (res.code === 200) {
           this.lists = res.data
         }
       })
-    }
-  }
+    },
+  },
 }
 </script>
 

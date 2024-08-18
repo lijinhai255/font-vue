@@ -36,7 +36,7 @@ const getLinks = () => {
 const uploadImg = (formData) => axios.post('/content/upload', formData)
 
 // 发贴接口
-const addPost = (data) => axios.post('/content/add', { ...data })
+const addPost = (data) => axios.post('/content/add', { ...data, })
 
 // 获取文章详情
 const getDetail = (tid) => {
@@ -45,15 +45,15 @@ const getDetail = (tid) => {
   if (token !== '') {
     headers = {
       headers: {
-        Authorization: 'Bearer ' + store.state.token
-      }
+        Authorization: 'Bearer ' + store.state.token,
+      },
     }
   }
   return axios.get('/public/content/detail?tid=' + tid, headers)
 }
 
 // 更新文章，编辑帖子
-const updatePost = (data) => axios.post('/content/update', { ...data })
+const updatePost = (data) => axios.post('/content/update', { ...data, })
 
 export {
   getList,
@@ -64,5 +64,5 @@ export {
   addPost,
   getDetail,
   updatePost,
-  getCandyList
+  getCandyList,
 }

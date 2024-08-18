@@ -20,18 +20,18 @@
 import faces from '@/assets/js/face'
 export default {
   name: 'Face',
-  props: ['isShow', 'ctrl'],
+  props: ['isShow', 'ctrl', ],
   data() {
     return {
-      lists: faces
+      lists: faces,
     }
   },
   methods: {
     handleFaceClick(item) {
       this.$emit('addEvent', item)
       this.$emit('closeEvent')
-    }
-  }
+    },
+  },
 }
 </script>
 

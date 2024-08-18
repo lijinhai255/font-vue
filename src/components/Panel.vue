@@ -60,37 +60,37 @@ export default {
         {
           name: '提问',
           path: '/index/ask',
-          isNew: false
+          isNew: false,
         },
         {
           name: '分享',
           path: '/index/share',
-          isNew: true
+          isNew: true,
         },
         {
           name: '讨论',
           path: '/index/discuss',
-          isNew: false
+          isNew: false,
         },
         {
           name: '建议',
           path: '/index/advise',
-          isNew: false
+          isNew: false,
         },
         {
           name: '公告',
           path: '/index/notice',
-          isNew: false
+          isNew: false,
         },
         {
           name: '动态',
           path: '/index/logs',
-          isNew: false
-        }
+          isNew: false,
+        },
       ],
-      isLogin: this.$store.state.isLogin
+      isLogin: this.$store.state.isLogin,
     }
-  }
+  },
 }
 </script>
 

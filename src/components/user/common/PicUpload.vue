@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import { uploadImg } from '@/api/content'
-import { updateUserInfo } from '@/api/user'
+import { uploadImg, } from '@/api/content'
+import { updateUserInfo, } from '@/api/user'
 export default {
   name: 'pic-upload',
   data() {
@@ -33,7 +33,7 @@ export default {
         this.$store.state.userInfo && this.$store.state.userInfo.pic
           ? this.$store.state.userInfo.pic
           : '/img/bear-200-200.jpg',
-      formData: ''
+      formData: '',
     }
   },
   methods: {
@@ -49,7 +49,7 @@ export default {
         if (res.code === 200) {
           this.pic = res.data
           // 更新用户基本资料 -> updateUserInfo
-          updateUserInfo({ pic: this.pic }).then((res) => {
+          updateUserInfo({ pic: this.pic, }).then((res) => {
             if (res.code === 200) {
               // 修改全局的 store 内的用户基础信息
               let user = this.$store.state.userInfo
@@ -61,8 +61,8 @@ export default {
           document.getElementById('pic').value = ''
         }
       })
-    }
-  }
+    },
+  },
 }
 </script>
 

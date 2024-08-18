@@ -180,14 +180,14 @@
 </template>
 
 <script>
-import { addPost } from '@/api/content'
+import { addPost, } from '@/api/content'
 import CodeMix from '@/mixin/code'
 import Editor from '../modules/editor/Index'
 export default {
   name: 'add',
-  mixins: [CodeMix],
+  mixins: [CodeMix, ],
   components: {
-    Editor
+    Editor,
   },
   data() {
     return {
@@ -198,28 +198,28 @@ export default {
       catalogs: [
         {
           text: '请选择',
-          value: ''
+          value: '',
         },
         {
           text: '提问',
-          value: 'ask'
+          value: 'ask',
         },
         {
           text: '分享',
-          value: 'share'
+          value: 'share',
         },
         {
           text: '讨论',
-          value: 'discuss'
+          value: 'discuss',
         },
         {
           text: '建议',
-          value: 'advise'
-        }
+          value: 'advise',
+        },
       ],
-      favList: [20, 30, 50, 60, 80],
+      favList: [20, 30, 50, 60, 80, ],
       content: '',
-      title: ''
+      title: '',
     }
   },
   mounted() {
@@ -259,7 +259,7 @@ export default {
         title: this.title,
         cataIndex: this.cataIndex,
         content: this.content,
-        favIndex: this.favIndex
+        favIndex: this.favIndex,
       }
       if (this.title.trim() !== '' && this.content.trim() !== '') {
         localStorage.setItem('addData', JSON.stringify(saveData))
@@ -283,26 +283,26 @@ export default {
         content: this.content,
         fav: this.favList[this.favIndex],
         code: this.code,
-        sid: this.$store.state.sid
+        sid: this.$store.state.sid,
       }).then((res) => {
         if (res.code === 200) {
           // 清空已经发布的内容
           localStorage.setItem('addData', '')
           this.$pop('', '发贴成功!')
           setTimeout(() => {
-            this.$router.push({ name: 'detail', params: { tid: res.data._id } })
+            this.$router.push({ name: 'detail', params: { tid: res.data._id, }, })
           }, 2000)
         } else {
           this.$alert(res.msg)
         }
       })
-    }
+    },
   },
   computed: {
     isHide() {
       return this.$store.state.isHide
-    }
-  }
+    },
+  },
 }
 </script>
 

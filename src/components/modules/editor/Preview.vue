@@ -21,13 +21,13 @@ export default {
   name: 'Preview',
   props: ['isShow', 'content'],
   watch: {
-    isShow(newval, oldval) {
+    isShow(newval) {
       if (newval) {
         this.$store.commit('setHide', true)
       } else {
         this.$store.commit('setHide', false)
       }
-    }
+    },
   },
   computed: {
     replaceContent() {
@@ -36,13 +36,13 @@ export default {
         return
       }
       return escapeHtml(this.content)
-    }
+    },
   },
   methods: {
     cancel() {
       this.$emit('closeEvent')
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -36,13 +36,13 @@ export default [
   {
     path: '/center',
     component: Center,
-    meta: { requiresAuth: true },
+    meta: { requiresAuth: true, },
     linkActiveClass: 'layui-this',
     children: [
       {
         path: '',
         name: 'center',
-        component: UserCenter
+        component: UserCenter,
       },
       {
         path: 'set',
@@ -51,24 +51,24 @@ export default [
           {
             path: '',
             name: 'info',
-            component: MyInfo
+            component: MyInfo,
           },
           {
             path: 'pic',
             name: 'pic',
-            component: PicUpload
+            component: PicUpload,
           },
           {
             path: 'passwd',
             name: 'passwd',
-            component: Passwd
+            component: Passwd,
           },
           {
             path: 'account',
             name: 'account',
-            component: Accounts
-          }
-        ]
+            component: Accounts,
+          },
+        ],
       },
       {
         path: 'posts',
@@ -77,31 +77,31 @@ export default [
           {
             path: '',
             name: 'mypost',
-            component: MyPost
+            component: MyPost,
           },
           {
             path: 'mycollection',
             name: 'mycollection',
-            component: MyCollection
-          }
-        ]
+            component: MyCollection,
+          },
+        ],
       },
       {
         path: 'msg',
         name: 'msg',
-        component: Msg
+        component: Msg,
       },
       {
         path: 'others',
         name: 'others',
-        component: Others
-      }
-    ]
+        component: Others,
+      },
+    ],
   },
   {
     path: '/user/:uid',
     name: 'home',
     props: true,
-    component: User
-  }
+    component: User,
+  },
 ]

@@ -65,7 +65,7 @@ export default {
   name: 'sign',
   components: {
     SignInfo,
-    SignList
+    SignList,
   },
   data() {
     return {
@@ -74,7 +74,7 @@ export default {
       current: 0,
       isSign: false,
       msg: '',
-      ctrl: ''
+      ctrl: '',
     }
   },
   mounted() {
@@ -97,14 +97,14 @@ export default {
     }
   },
   watch: {
-    userInfo(newval, oldval) {
+    userInfo(newval) {
       if (newval.isSign === true) {
         this.nextSign()
         this.isSign = true
       } else {
         this.isSign = false
       }
-    }
+    },
   },
   computed: {
     userInfo() {
@@ -141,14 +141,12 @@ export default {
       } else {
         return 0
       }
-    }
+    },
   },
   methods: {
     nextSign() {
       clearInterval(this.ctrl)
-      const newDate = moment()
-        .add(1, 'day')
-        .format('YYYY-MM-DD')
+      const newDate = moment().add(1, 'day').format('YYYY-MM-DD')
       let seconds = moment(newDate + ' 00:00:00').diff(moment(), 'second')
       // 测试用
       // const newDate = moment().add(10, 'second')
@@ -216,8 +214,8 @@ export default {
         this.$store.commit('setUserInfo', user)
       })
       this.nextSign()
-    }
-  }
+    },
+  },
 }
 </script>
 <style lang="scss">

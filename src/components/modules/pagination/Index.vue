@@ -4,7 +4,7 @@
     :class="{
       'flex-center': align === 'center',
       'flex-start': align === 'left',
-      'flex-end': align === 'right'
+      'flex-end': align === 'right',
     }"
   >
     <div class="layui-box layui-laypage layui-laypage-default">
@@ -35,14 +35,14 @@
           @click="changeIndex(index)"
           v-if="
             (item >= current + 1 - 2 && item <= current + 1 + 2) ||
-              (current < 2 && item <= dist) ||
-              (current > pages.length - dist + 1 && item > pages.length - dist)
+            (current < 2 && item <= dist) ||
+            (current > pages.length - dist + 1 && item > pages.length - dist)
           "
           href="javascript:;"
           :key="'page' + index"
           :class="[
             current === index ? theme : '',
-            current === index ? 'active' : ''
+            current === index ? 'active' : '',
           ]"
           >{{ item }}</a
         >
@@ -117,44 +117,44 @@ export default {
   props: {
     align: {
       type: String,
-      default: 'center'
+      default: 'center',
     },
     showType: {
       type: String,
-      default: 'icon'
+      default: 'icon',
     },
     showEnd: {
       type: Boolean,
-      default: false
+      default: false,
     },
     theme: {
       type: String,
-      default: 'layui-bg-green'
+      default: 'layui-bg-green',
     },
     hasTotal: {
       type: Boolean,
-      default: false
+      default: false,
     },
     hasSelect: {
       type: Boolean,
-      default: false
+      default: false,
     },
     total: {
       type: Number,
-      default: 0
+      default: 0,
     },
     current: {
       type: Number,
-      default: 0
+      default: 0,
     },
     size: {
       type: Number,
-      default: 10
+      default: 10,
     },
     dist: {
       type: Number,
-      default: 5
-    }
+      default: 5,
+    },
   },
   data() {
     return {
@@ -162,18 +162,18 @@ export default {
       optIndex: 0,
       options: [10, 20, 30, 50, 100],
       pages: [],
-      limit: 10
+      limit: 10,
     }
   },
   watch: {
-    total(newval, oldval) {
+    total() {
       this.initPages()
-    }
+    },
   },
   computed: {
     totalPages() {
       return Math.ceil(this.total / this.limit)
-    }
+    },
   },
   mounted() {
     // 初始化分页的长度
@@ -249,8 +249,8 @@ export default {
       if (cur !== this.current) {
         this.$emit('changeCurrent', cur)
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

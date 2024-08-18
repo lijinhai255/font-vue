@@ -40,11 +40,11 @@
 
             <span
               class="layui-badge"
-              style="background-color: #999;"
+              style="background-color: #999"
               v-if="page.isEnd === '0'"
               >未结</span
             >
-            <span class="layui-badge" style="background-color: #5FB878;" v-else
+            <span class="layui-badge" style="background-color: #5fb878" v-else
               >已结</span
             >
 
@@ -83,7 +83,7 @@
                   type="set"
                   field="stick"
                   rank="0"
-                  style="background-color:#ccc;"
+                  style="background-color: #ccc"
                   v-else
                   >取消置顶</span
                 >
@@ -128,7 +128,7 @@
               <span>{{ page.created | moment }}</span>
             </div>
             <div class="detail-hits">
-              <span style="padding-right: 10px; color: #FF7200"
+              <span style="padding-right: 10px; color: #ff7200"
                 >悬赏：{{ page.fav }}</span
               >
             </div>
@@ -154,7 +154,7 @@
         <div class="fly-panel detail-box" id="flyReply">
           <fieldset
             class="layui-elem-field layui-field-title"
-            style="text-align: center;"
+            style="text-align: center"
           >
             <legend>回帖</legend>
           </fieldset>
@@ -177,7 +177,7 @@
                     class="fly-link"
                     :to="{
                       name: 'home',
-                      params: { uid: item.cuid ? item.cuid._id : '' }
+                      params: { uid: item.cuid ? item.cuid._id : '' },
                     }"
                   >
                     <cite>{{ item.cuid ? item.cuid.name : 'imooc' }}</cite>
@@ -241,9 +241,9 @@
                     class="jieda-accept"
                     v-show="
                       page.isEnd === '0' &&
-                        user &&
-                        page.uid &&
-                        page.uid._id === user._id
+                      user &&
+                      page.uid &&
+                      page.uid._id === user._id
                     "
                     @click="setBest(item)"
                     >采纳</span
@@ -297,14 +297,14 @@
                       <div class>
                         <span
                           class="svg"
-                          style="color: #c00;"
+                          style="color: #c00"
                           @click="_getCode()"
                           v-html="svg"
                         ></span>
                       </div>
                     </div>
                     <div class="layui-form-mid">
-                      <span style="color: #c00;">{{ errors[0] }}</span>
+                      <span style="color: #c00">{{ errors[0] }}</span>
                     </div>
                   </validation-provider>
                 </div>
@@ -338,7 +338,7 @@ import {
   addComment,
   updateComment,
   setCommentBest,
-  setHands
+  setHands,
 } from '@/api/comments'
 import { addCollect } from '@/api/user'
 import HotList from '@/components/sidebar/HotList'
@@ -361,7 +361,7 @@ export default {
     'imooc-links': Links,
     'imooc-panel': Panel,
     'imooc-edit': Editor,
-    'imooc-page': Pagination
+    'imooc-page': Pagination,
   },
   data() {
     return {
@@ -373,8 +373,8 @@ export default {
       editInfo: {
         content: '',
         code: '',
-        sid: ''
-      }
+        sid: '',
+      },
     }
   },
   mounted() {
@@ -383,10 +383,10 @@ export default {
     this.getCommentsList()
   },
   watch: {
-    tid(newval, oldval) {
+    tid() {
       this.getPostDetail()
       this.getCommentsList()
-    }
+    },
   },
   methods: {
     handleChange(val) {
@@ -408,7 +408,7 @@ export default {
       getComents({
         tid: this.tid,
         page: this.current,
-        limit: this.size
+        limit: this.size,
       }).then((res) => {
         if (res.code === 200) {
           this.comments = res.data
@@ -446,7 +446,7 @@ export default {
         _id: user._id,
         pic: user.pic,
         name: user.name,
-        isVip: user.isVip
+        isVip: user.isVip,
       }
 
       if (
@@ -515,7 +515,7 @@ export default {
           // 发送采纳最佳答案请求
           setCommentBest({
             cid: item._id,
-            tid: this.tid
+            tid: this.tid,
           }).then((res) => {
             if (res.code === 200) {
               this.$pop('', '设置最佳答案成功！')
@@ -570,7 +570,7 @@ export default {
         const collect = {
           tid: this.tid,
           title: this.page.title,
-          isFav: this.page.isFav ? 1 : 0
+          isFav: this.page.isFav ? 1 : 0,
         }
         addCollect(collect).then((res) => {
           if (res.code === 200) {
@@ -581,7 +581,7 @@ export default {
       } else {
         this.$pop('shake', '请先登录后再进行收藏！')
       }
-    }
+    },
   },
   computed: {
     content() {
@@ -595,8 +595,8 @@ export default {
     },
     user() {
       return this.$store.state.userInfo
-    }
-  }
+    },
+  },
 }
 </script>
 

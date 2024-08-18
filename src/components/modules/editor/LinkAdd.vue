@@ -30,10 +30,10 @@
 <script>
 export default {
   name: 'LinkAdd',
-  props: ['isShow'],
+  props: ['isShow', ],
   data() {
     return {
-      link: ''
+      link: '',
     }
   },
   methods: {
@@ -52,8 +52,8 @@ export default {
     cancel() {
       this.$emit('closeEvent')
       this.link = ''
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -7,7 +7,7 @@ import {
   length,
   confirmed,
   max,
-  is_not as isNot
+  is_not as isNot,
 } from 'vee-validate/dist/rules'
 import zh from 'vee-validate/dist/locale/zh_CN.json'
 
@@ -24,7 +24,7 @@ extend('name', {
   validate: (value) => {
     return !/^\d+/.test(value)
   },
-  message: '不能以纯数字为昵称'
+  message: '不能以纯数字为昵称',
 })
 
 localize('zh_CN', {
@@ -32,7 +32,7 @@ localize('zh_CN', {
   messages: {
     ...zh.messages,
     // 全局定义message
-    required: '请输入{_field_}'
+    required: '请输入{_field_}',
   },
   // 与validation-provider中的name对应
   // key为name, value为对应的中文field名称
@@ -45,26 +45,26 @@ localize('zh_CN', {
     username: '账号',
     code: '验证码',
     title: '标题',
-    catalog: '分类'
+    catalog: '分类',
   },
   // 针对不同的name，定义不同的message消息
   fields: {
     catalog: {
-      is_not: '请选择{_field_}'
+      is_not: '请选择{_field_}',
     },
     email: {
       email: '请输入正确的{_field_}',
-      required: '请输入{_field_}'
+      required: '请输入{_field_}',
     },
     name: {
       min: (field, { length }) => {
         return `请在${field}输入至少${length}个字符`
-      }
+      },
     },
     password: {
-      confirmed: (field, { target }) => {
+      confirmed: (field) => {
         return `两次输入的${field}不一致！`
-      }
-    }
-  }
+      },
+    },
+  },
 })

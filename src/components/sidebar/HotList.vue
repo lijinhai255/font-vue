@@ -20,12 +20,12 @@
 </template>
 
 <script>
-import { getTop } from '@/api/content'
+import { getTop, } from '@/api/content'
 export default {
   name: 'hotlist',
   data() {
     return {
-      lists: []
+      lists: [],
     }
   },
   mounted() {
@@ -34,7 +34,7 @@ export default {
         this.lists = res.data
       }
     })
-  }
+  },
 }
 </script>
 

@@ -74,19 +74,19 @@
 </template>
 
 <script>
-import { ValidationProvider, ValidationObserver } from 'vee-validate'
-import { changePasswd } from '@/api/user'
+import { ValidationProvider, ValidationObserver, } from 'vee-validate'
+import { changePasswd, } from '@/api/user'
 export default {
   name: 'password',
   components: {
     ValidationProvider,
-    ValidationObserver
+    ValidationObserver,
   },
   data() {
     return {
       oldpassword: '',
       password: '',
-      repassword: ''
+      repassword: '',
     }
   },
   methods: {
@@ -102,7 +102,7 @@ export default {
       }
       changePasswd({
         oldpwd: this.oldpassword,
-        newpwd: this.password
+        newpwd: this.password,
       }).then((res) => {
         if (res.code === 200) {
           this.$alert('密码更新成功！')
@@ -114,8 +114,8 @@ export default {
           })
         }
       })
-    }
-  }
+    },
+  },
 }
 </script>
 

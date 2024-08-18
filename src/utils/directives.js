@@ -2,20 +2,20 @@ import { escapeHtml } from '@/utils/escapeHtml'
 import store from '@/store'
 export default {
   richtext: {
-    bind: function (el, binding, vnode) {
+    bind: function (el, binding) {
       el.innerHTML = escapeHtml(binding.value)
     },
-    componentUpdated: function (el, binding, vnode) {
+    componentUpdated: function (el, binding) {
       el.innerHTML = escapeHtml(binding.value)
-    }
+    },
   },
   hasRole: {
-    inserted: function (el, binding, vnode) {
+    inserted: function (el, binding) {
       let roles = store.state.userInfo.roles || ['user']
       if (!roles.includes(binding.value)) {
         el.parentNode.removeChild(el)
       }
-    }
+    },
   },
   hasPermission: {
     inserted: function (el, binding, vnode) {
@@ -30,6 +30,6 @@ export default {
       if (!flag) {
         el.parentNode.removeChild(el)
       }
-    }
-  }
+    },
+  },
 }

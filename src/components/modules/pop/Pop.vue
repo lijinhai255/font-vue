@@ -15,16 +15,16 @@ export default {
   props: {
     type: {
       type: String,
-      default: ''
+      default: '',
     },
     msg: {
       type: String,
-      default: ''
+      default: '',
     },
     isShow: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   watch: {
     isShow(newval, oldval) {
@@ -42,8 +42,8 @@ export default {
           this.type = ''
         }, 3000)
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

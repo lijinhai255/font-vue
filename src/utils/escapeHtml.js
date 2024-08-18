@@ -77,4 +77,4 @@ const escapeHtml = (val = '') => {
   result = result.replace(/\n/g, '<br>')
   return result
 }
-export { escapeHtml }
+export { escapeHtml, }

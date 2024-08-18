@@ -141,7 +141,7 @@ const faces = {
   '[蜡烛]':
     'http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/d9/lazhuv2_thumb.gif',
   '[蛋糕]':
-    'http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/3a/cakev2_thumb.gif'
+    'http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/3a/cakev2_thumb.gif',
 }
 
 export default faces

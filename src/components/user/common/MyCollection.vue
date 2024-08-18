@@ -41,12 +41,12 @@
 </template>
 
 <script>
-import { getCollect } from '@/api/user'
+import { getCollect, } from '@/api/user'
 import Pagination from '@/components/modules/pagination/Index'
 export default {
   name: 'my-collection',
   components: {
-    'imooc-page': Pagination
+    'imooc-page': Pagination,
   },
   data() {
     return {
@@ -54,7 +54,7 @@ export default {
       total: 0,
       current: 0,
       page: 0,
-      limit: 10
+      limit: 10,
     }
   },
   mounted() {
@@ -64,7 +64,7 @@ export default {
     getCollectList() {
       getCollect({
         page: this.current,
-        limit: this.limit
+        limit: this.limit,
       }).then((res) => {
         if (res.code === 200) {
           this.list = res.data
@@ -75,8 +75,8 @@ export default {
     handleChange(val) {
       this.current = val
       this.getCollectList()
-    }
-  }
+    },
+  },
 }
 </script>
 

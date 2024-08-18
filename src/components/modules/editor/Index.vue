@@ -86,7 +86,7 @@ export default {
     LinkAdd,
     Quote,
     CodeInput,
-    Preview
+    Preview,
   },
   data() {
     return {
@@ -94,13 +94,14 @@ export default {
       codeWidth: 400,
       codeHeight: 200,
       content: '',
-      pos: ''
+      pos: '',
     }
   },
   watch: {
     initContent(newval, oldval) {
+      console.log(oldval)
       this.content = newval
-    }
+    },
   },
   updated() {
     this.$emit('changeContent', this.content)
@@ -191,7 +192,7 @@ export default {
       let tmp = this.content.split('')
       tmp.splice(this.pos, 0, val)
       this.content = tmp.join('')
-    }
+    },
   },
   mounted() {
     this.$nextTick(() => {
@@ -210,7 +211,7 @@ export default {
     document
       .querySelector('body')
       .removeEventListener('click', this.handleBodyClick)
-  }
+  },
 }
 </script>
 

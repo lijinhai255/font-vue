@@ -10,18 +10,18 @@ export default [
     path: '/add',
     name: 'add',
     component: Add,
-    meta: { requiresAuth: true }
+    meta: { requiresAuth: true, },
   },
   {
     path: '/edit/:tid',
     props: true,
     name: 'edit',
     component: Edit,
-    meta: { requiresAuth: true },
+    meta: { requiresAuth: true, },
     beforeEnter(to, from, next) {
       // 正常的情况 detail
       if (
-        ['detail', 'mypost'].indexOf(from.name) !== -1 &&
+        ['detail', 'mypost', ].indexOf(from.name) !== -1 &&
         to.params.page &&
         to.params.page.isEnd === '0'
       ) {
@@ -40,7 +40,7 @@ export default [
           next('/')
         }
       }
-    }
+    },
   },
   {
     path: '/detail/:tid',
@@ -49,7 +49,7 @@ export default [
     component: Detail,
     meta: {
       // 通过后台接口动态添加到路由 addRoutes
-      types: ['get', 'add', 'delete']
-    }
-  }
+      types: ['get', 'add', 'delete', ],
+    },
+  },
 ]

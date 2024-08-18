@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, } from 'vuex'
 export default {
   name: 'center',
   data() {
@@ -30,41 +30,41 @@ export default {
         {
           name: '我的主页',
           icon: 'layui-icon-home',
-          link: 'home'
+          link: 'home',
         },
         {
           name: '用户中心',
           icon: 'layui-icon-friends',
-          link: 'center'
+          link: 'center',
         },
         {
           name: '基本设置',
           icon: 'layui-icon-set',
           link: 'info',
-          activeClass: 'layui-this'
+          activeClass: 'layui-this',
         },
         {
           name: '我的帖子',
           icon: 'layui-icon-form',
           link: 'mypost',
-          activeClass: 'layui-this'
+          activeClass: 'layui-this',
         },
         {
           name: '我的消息',
           icon: 'layui-icon-reply-fill',
-          link: 'msg'
+          link: 'msg',
         },
         {
           name: '其他设置',
           icon: 'layui-icon-component',
-          link: 'others'
-        }
-      ]
+          link: 'others',
+        },
+      ],
     }
   },
   computed: {
-    ...mapGetters(['uid'])
-  }
+    ...mapGetters(['uid', ]),
+  },
 }
 </script>
 

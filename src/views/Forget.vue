@@ -135,18 +135,18 @@
 
 <script>
 import uuid from 'uuid'
-import { getCode, forget } from '@/api/login'
-import { ValidationProvider } from 'vee-validate'
+import { getCode, forget, } from '@/api/login'
+import { ValidationProvider, } from 'vee-validate'
 export default {
   name: 'forget',
   components: {
-    ValidationProvider
+    ValidationProvider,
   },
   data() {
     return {
       username: '',
       code: '',
-      svg: ''
+      svg: '',
     }
   },
   mounted() {
@@ -172,14 +172,14 @@ export default {
     submit() {
       forget({
         username: this.username,
-        code: this.code
+        code: this.code,
       }).then((res) => {
         if (res.code === 200) {
           alert('邮件发送成功')
         }
       })
-    }
-  }
+    },
+  },
 }
 </script>
 

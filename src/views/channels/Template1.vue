@@ -24,8 +24,8 @@ export default {
     'imooc-hotlist': HotList,
     'imooc-ads': Ads,
     'imooc-links': Links,
-    'imooc-list': List
-  }
+    'imooc-list': List,
+  },
 }
 </script>
 

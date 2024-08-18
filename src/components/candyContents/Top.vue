@@ -6,7 +6,7 @@
         href="#signin"
         class="layui-hide-sm layui-show-xs-block fly-right"
         id="LAY_goSignin"
-        style="color: #FF5722;"
+        style="color: #ff5722"
         >去签到</a
       >
     </div>
@@ -19,15 +19,15 @@ import listMix from '@/mixin/list'
 import ListItem from './ListItem'
 export default {
   name: 'top',
-  mixins: [listMix],
+  mixins: [listMix, ],
   data() {
     return {
-      isTop: 1
+      isTop: 1,
     }
   },
   components: {
-    ListItem
-  }
+    ListItem,
+  },
 }
 </script>
 

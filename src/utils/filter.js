@@ -29,5 +29,5 @@ const hours = (date) => {
 
 export default {
   moment,
-  hours
+  hours,
 }

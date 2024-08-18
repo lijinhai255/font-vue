@@ -1,16 +1,16 @@
-import { getCode } from '@/api/login'
+import { getCode, } from '@/api/login'
 import uuid from 'uuid/v4'
-import { ValidationProvider, ValidationObserver } from 'vee-validate'
+import { ValidationProvider, ValidationObserver, } from 'vee-validate'
 
 export default {
   components: {
     ValidationProvider,
-    ValidationObserver
+    ValidationObserver,
   },
   data() {
     return {
       code: '',
-      svg: ''
+      svg: '',
     }
   },
   mounted() {
@@ -32,6 +32,6 @@ export default {
           this.svg = res.data
         }
       })
-    }
-  }
+    },
+  },
 }

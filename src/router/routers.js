@@ -23,14 +23,14 @@ export default {
         {
           path: '',
           name: 'index',
-          component: Index
+          component: Index,
         },
         {
           path: '/index/:catalog',
           name: 'catalog',
-          component: Template1
-        }
-      ]
+          component: Template1,
+        },
+      ],
     },
     {
       path: 'candy',
@@ -39,36 +39,36 @@ export default {
         {
           path: '',
           name: 'candy',
-          component: Index
+          component: Index,
         },
         {
           path: 'candy',
           name: 'candy',
-          component: Index
-        }
-      ]
+          component: Index,
+        },
+      ],
     },
     {
       path: 'candyCompany',
       component: Home,
-      meta: { requiresAuth: true },
+      meta: { requiresAuth: true, },
       children: [
         {
           path: '',
           name: 'candyCompany',
-          component: candyCompany
+          component: candyCompany,
         },
         {
           path: 'candyCompany',
           name: 'candyCompany',
-          component: candyCompany
-        }
-      ]
+          component: candyCompany,
+        },
+      ],
     },
     {
       path: 'candyUsers',
       name: 'candyUsers',
-      component: candyUsers
+      component: candyUsers,
     },
     ...content,
     ...login,
@@ -76,11 +76,11 @@ export default {
     {
       path: '/404',
       name: '404',
-      component: NoFound
+      component: NoFound,
     },
     {
       path: '*',
-      redirect: '/404'
-    }
-  ]
+      redirect: '/404',
+    },
+  ],
 }

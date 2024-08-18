@@ -58,4 +58,4 @@ const scrollToElem = (elem, duration, offset) => {
   })
 }
 
-export { getParams, getParam, scrollToElem }
+export { getParams, getParam, scrollToElem, }

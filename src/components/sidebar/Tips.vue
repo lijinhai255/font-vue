@@ -16,12 +16,12 @@
 </template>
 
 <script>
-import { getTips } from '@/api/content'
+import { getTips, } from '@/api/content'
 export default {
   name: 'tips',
   data() {
     return {
-      lists: []
+      lists: [],
     }
   },
   mounted() {
@@ -30,7 +30,7 @@ export default {
         this.lists = res.data
       }
     })
-  }
+  },
 }
 </script>
 

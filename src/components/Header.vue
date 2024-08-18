@@ -122,14 +122,14 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, } from 'vuex'
 export default {
   name: 'Header',
   data() {
     return {
       isHover: false,
       hoverCtrl: {},
-      hasMsg: false
+      hasMsg: false,
     }
   },
   methods: {
@@ -155,11 +155,11 @@ export default {
           this.$store.commit('setToken', '')
           this.$store.commit('setUserInfo', {})
           this.$store.commit('setIsLogin', false)
-          this.$router.push({ name: 'index' }, () => {})
+          this.$router.push({ name: 'index', }, () => {})
         },
         () => {}
       )
-    }
+    },
   },
   watch: {
     num(newval, oldval) {
@@ -172,14 +172,14 @@ export default {
           }, 2000)
         }
       }
-    }
+    },
   },
   computed: {
     // num () {
     //  return this.$store.state.num
     // }
     ...mapState({
-      num: (state) => state.num
+      num: (state) => state.num,
     }),
     isShow() {
       return this.$store.state.isLogin
@@ -189,11 +189,11 @@ export default {
         this.$store.state.userInfo || {
           name: '',
           pic: '',
-          isVip: '0'
+          isVip: '0',
         }
       )
-    }
-  }
+    },
+  },
 }
 </script>
 

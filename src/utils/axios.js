@@ -16,9 +16,9 @@ class HttpRequest {
     const config = {
       baseURL: this.baseUrl,
       headers: {
-        'Content-Type': 'application/json;charset=utf-8'
+        'Content-Type': 'application/json;charset=utf-8',
       },
-      timeout: 10000
+      timeout: 10000,
     }
     return config
   }
@@ -91,7 +91,7 @@ class HttpRequest {
     const options = Object.assign(
       {
         method: 'get',
-        url: url
+        url: url,
       },
       config
     )
@@ -101,7 +101,7 @@ class HttpRequest {
     return this.request({
       method: 'post',
       url: url,
-      data: data
+      data: data,
     })
   }
 }

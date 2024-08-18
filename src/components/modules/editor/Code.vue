@@ -31,10 +31,10 @@
 <script>
 export default {
   name: 'Code',
-  props: ['isShow', 'width', 'height'],
+  props: ['isShow', 'width', 'height', ],
   data() {
     return {
-      code: ''
+      code: '',
     }
   },
   methods: {
@@ -53,8 +53,8 @@ export default {
     cancel() {
       this.code = ''
       this.$emit('closeEvent')
-    }
-  }
+    },
+  },
 }
 </script>
 

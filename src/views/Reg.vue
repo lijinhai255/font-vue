@@ -190,8 +190,8 @@
 </template>
 
 <script>
-import { getCode, reg } from '@/api/login'
-import { ValidationProvider, ValidationObserver } from 'vee-validate'
+import { getCode, reg, } from '@/api/login'
+import { ValidationProvider, ValidationObserver, } from 'vee-validate'
 
 export default {
   name: 'reg',
@@ -202,12 +202,12 @@ export default {
       password: '',
       repassword: '',
       code: '',
-      svg: ''
+      svg: '',
     }
   },
   components: {
     ValidationProvider,
-    ValidationObserver
+    ValidationObserver,
   },
   mounted() {
     this._getCode()
@@ -232,7 +232,7 @@ export default {
         password: this.password,
         name: this.name,
         code: this.code,
-        sid: this.$store.state.sid
+        sid: this.$store.state.sid,
       }).then((res) => {
         if (res.code === 200) {
           this.username = ''
@@ -254,8 +254,8 @@ export default {
           this.$refs.observer.setErrors(res.msg)
         }
       })
-    }
-  }
+    },
+  },
 }
 </script>
 <style lang="scss" scoped>

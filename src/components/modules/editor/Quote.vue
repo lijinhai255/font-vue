@@ -27,10 +27,10 @@
 <script>
 export default {
   name: 'Quote',
-  props: ['isShow'],
+  props: ['isShow', ],
   data() {
     return {
-      quote: ''
+      quote: '',
     }
   },
   methods: {
@@ -49,8 +49,8 @@ export default {
     cancel() {
       this.quote = ''
       this.$emit('closeEvent')
-    }
-  }
+    },
+  },
 }
 </script>
 

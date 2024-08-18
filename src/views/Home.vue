@@ -11,8 +11,8 @@ import CandisePanel from '@/components/CandisePanel'
 export default {
   name: 'home',
   components: {
-    'imooc-panel': CandisePanel
-  }
+    'imooc-panel': CandisePanel,
+  },
 }
 </script>
 

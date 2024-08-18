@@ -10,17 +10,17 @@ export default [
   {
     path: '/login',
     name: 'login',
-    component: Login
+    component: Login,
   },
   {
     path: '/confirm',
     name: 'confirm',
-    component: Confirm
+    component: Confirm,
   },
   {
     path: '/reset',
     name: 'reset',
-    component: Reset
+    component: Reset,
   },
   {
     path: '/reg',
@@ -32,11 +32,11 @@ export default [
       } else {
         next('/login')
       }
-    }
+    },
   },
   {
     path: '/forget',
     name: 'forget',
-    component: Forget
-  }
+    component: Forget,
+  },
 ]

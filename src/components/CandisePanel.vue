@@ -25,19 +25,44 @@
         <span class="fly-search">
           <i class="layui-icon"></i>
         </span>
-        <router-link :to="{ name: 'add' }" class="layui-btn"
-          >发表新糖果</router-link
-        >
+        <span @click="showDrawer(true)" class="layui-btn"
+          >发表新糖果= {{ visable ? 'true' : 'false' }}
+        </span>
       </div>
     </div>
+    <DrawerWrapper
+      :title="'新建账户'"
+      :visible="drawerVisible"
+      @close="handleClose"
+    >
+      <!-- 使用插槽自定义内容 -->
+      <a-form layout="vertical">
+        <a-form-item label="用户名">
+          <a-input placeholder="请输入用户名" />
+        </a-form-item>
+        <a-form-item label="URL">
+          <a-input placeholder="请输入URL" />
+        </a-form-item>
+      </a-form>
+      <!-- 使用footer插槽自定义底部操作按钮 -->
+      <template v-slot:footer>
+        <a-button @click="handleClose">取消</a-button>
+        <a-button type="primary" @click="handleSubmit">提交</a-button>
+      </template>
+    </DrawerWrapper>
   </div>
 </template>
 
 <script>
+import DrawerWrapper from '../components/candyContents/Add.vue'
 export default {
   name: 'CandisePanel',
+  components: {
+    DrawerWrapper,
+  },
   data() {
     return {
+      drawerVisible: false,
       lists: [
         // {
         //   name: '提问',
@@ -70,9 +95,26 @@ export default {
         //   isNew: false
         // }
       ],
-      isLogin: this.$store.state.isLogin
+      isLogin: this.$store.state.isLogin,
     }
-  }
+  },
+  watch: {
+    visable(oldValue, val) {
+      console.log(oldValue, val)
+    },
+  },
+  methods: {
+    showDrawer() {
+      this.drawerVisible = true
+    },
+    handleClose() {
+      this.drawerVisible = false
+    },
+    handleSubmit() {
+      console.log('提交表单')
+      this.handleClose()
+    },
+  },
 }
 </script>
 

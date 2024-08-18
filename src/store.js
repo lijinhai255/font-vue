@@ -12,7 +12,7 @@ export default new Vuex.Store({
     userInfo: {},
     isHide: false,
     ws: null,
-    num: 0
+    num: 0,
   },
   mutations: {
     initWebSocket(state, config) {
@@ -43,14 +43,14 @@ export default new Vuex.Store({
     },
     setMessage(state, value) {
       state.num = value
-    }
+    },
   },
   getters: {
-    uid: (state) => (state.userInfo ? state.userInfo._id : '')
+    uid: (state) => (state.userInfo ? state.userInfo._id : ''),
   },
   actions: {
-    message({ commit }, msg) {
+    message({ commit, }, msg) {
       commit('setMessage', msg)
-    }
-  }
+    },
+  },
 })

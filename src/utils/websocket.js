@@ -6,9 +6,9 @@ class WebSocketClient {
       url: config.wsconfig.url,
       port: config.wsconfig.port,
       protocol: 'ws',
-      timeInterval: 5 * 1000
+      timeInterval: 5 * 1000,
     }
-    const finalConfig = { ...defautConfig, ...confg }
+    const finalConfig = { ...defautConfig, ...confg, }
     this.ws = {}
     this.port = finalConfig.port
     this.url = finalConfig.url
@@ -33,7 +33,7 @@ class WebSocketClient {
     this.send(
       JSON.stringify({
         event: 'auth',
-        message: 'Bearer ' + store.state.token
+        message: 'Bearer ' + store.state.token,
       })
     )
   }
@@ -56,7 +56,7 @@ class WebSocketClient {
         this.ws.send(
           JSON.stringify({
             event: 'heartbeat',
-            message: 'pong'
+            message: 'pong',
           })
         )
         break

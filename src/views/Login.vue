@@ -136,21 +136,21 @@
 </template>
 
 <script>
-import { ValidationProvider, ValidationObserver } from 'vee-validate'
-import { getCode, login } from '@/api/login'
+import { ValidationProvider, ValidationObserver, } from 'vee-validate'
+import { getCode, login, } from '@/api/login'
 import uuid from 'uuid/v4'
 export default {
   name: 'login',
   components: {
     ValidationProvider,
-    ValidationObserver
+    ValidationObserver,
   },
   data() {
     return {
       username: '',
       password: '',
       code: '',
-      svg: ''
+      svg: '',
     }
   },
   mounted() {
@@ -183,7 +183,7 @@ export default {
         username: this.username,
         password: this.password,
         code: this.code,
-        sid: this.$store.state.sid
+        sid: this.$store.state.sid,
       })
         .then((res) => {
           if (res.code === 200) {
@@ -199,10 +199,10 @@ export default {
             requestAnimationFrame(() => {
               this.$refs.observer && this.$refs.observer.reset()
             })
-            const path = this.$route.query.redirect || { name: 'candy' }
+            const path = this.$route.query.redirect || { name: 'candy', }
             this.$router.push(path)
           } else if (res.code !== 200) {
-            this.$refs.codefield.setErrors([res.msg])
+            this.$refs.codefield.setErrors([res.msg, ])
           }
         })
         .catch((err) => {
@@ -213,8 +213,8 @@ export default {
             this.$alert('服务器错误')
           }
         })
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -5,7 +5,7 @@ import routes from './routers'
 
 import Vue from 'vue'
 import Router from 'vue-router'
-import { instance } from '../utils/errorHandle'
+import { instance, } from '../utils/errorHandle'
 
 Vue.use(Router)
 
@@ -33,8 +33,8 @@ router.beforeEach(async (to, from, next) => {
       instance
         .post('/login/refresh', null, {
           headers: {
-            Authorization: 'Bearer ' + refreshToken
-          }
+            Authorization: 'Bearer ' + refreshToken,
+          },
         })
         .then((res) => {
           store.commit('setToken', res.data.token)

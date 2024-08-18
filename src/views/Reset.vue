@@ -124,15 +124,15 @@
 </template>
 
 <script>
-import { ValidationProvider, ValidationObserver } from 'vee-validate'
-import { getCode, reset } from '@/api/login'
-import { getParam } from '@/utils/common'
+import { ValidationProvider, ValidationObserver, } from 'vee-validate'
+import { getCode, reset, } from '@/api/login'
+import { getParam, } from '@/utils/common'
 import uuid from 'uuid/v4'
 export default {
   name: 'reset',
   components: {
     ValidationProvider,
-    ValidationObserver
+    ValidationObserver,
   },
   data() {
     return {
@@ -140,7 +140,7 @@ export default {
       password: '',
       repassword: '',
       code: '',
-      svg: ''
+      svg: '',
     }
   },
   mounted() {
@@ -174,7 +174,7 @@ export default {
         key: this.key,
         password: this.password,
         sid: this.$store.state.sid,
-        code: this.code
+        code: this.code,
       }).then((res) => {
         if (res.code === 200) {
           this.$alert('密码修改成功！')
@@ -190,8 +190,8 @@ export default {
           }
         }
       })
-    }
-  }
+    },
+  },
 }
 </script>
 

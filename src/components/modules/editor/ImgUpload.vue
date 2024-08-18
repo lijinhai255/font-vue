@@ -50,14 +50,14 @@
 
 <script>
 // import config from '@/config'
-import { uploadImg } from '@/api/content'
+import { uploadImg, } from '@/api/content'
 export default {
   name: 'ImgUpload',
-  props: ['isShow', 'ctrl'],
+  props: ['isShow', 'ctrl', ],
   data() {
     return {
       pic: '',
-      formData: ''
+      formData: '',
     }
   },
   methods: {
@@ -99,8 +99,8 @@ export default {
         this.formData = ''
         this.$emit('closeEvent')
       }, 0)
-    }
-  }
+    },
+  },
 }
 </script>
 

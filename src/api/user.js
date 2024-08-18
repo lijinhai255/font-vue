@@ -14,7 +14,7 @@ const updateUsername = (data) =>
 // 修改用户密码
 const changePasswd = (data) =>
   axios.post('/user/changePassword', {
-    ...data
+    ...data,
   })
 
 // 设置收藏 & 取消收藏
@@ -60,5 +60,5 @@ export {
   getCommentList,
   getPostPublic,
   getMsg,
-  setMsg
+  setMsg,
 }

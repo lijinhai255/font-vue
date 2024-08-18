@@ -8,17 +8,17 @@
 <script>
 import HeaderCandies from '@/components/HeaderCandies.vue'
 import Footer from '@/components/FooterCandies.vue'
-import { mapState } from 'vuex'
+import { mapState, } from 'vuex'
 
 export default {
   name: 'app',
   components: {
     'imooc-header': HeaderCandies,
-    'imooc-footer': Footer
+    'imooc-footer': Footer,
   },
   computed: {
-    ...mapState(['isHide'])
-  }
+    ...mapState(['isHide', ]),
+  },
 }
 </script>
 
